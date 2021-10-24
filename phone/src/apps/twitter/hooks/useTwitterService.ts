@@ -78,7 +78,7 @@ export const useTwitterService = () => {
 
   const handleAddAlert = ({ message, type }: IAlert) => {
     addAlert({
-      message: t(`APPS_${message}`),
+      message: t(`TWITTER.${message}`),
       type,
     });
   };
