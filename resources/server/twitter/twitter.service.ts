@@ -45,7 +45,7 @@ class _TwitterService {
       await this.twitterDB.createProfile(identifier, profile.profile_name);
 
       emitNet(TwitterEvents.CREATE_PROFILE_RESULT, src, {
-        message: 'CREATE_PROFILE_SUCCESS',
+        message: 'FEEDBACK.CREATE_PROFILE_SUCCESS',
         type: 'success',
       });
     } catch (e) {
@@ -53,7 +53,7 @@ class _TwitterService {
         source: src,
       });
       emitNet(TwitterEvents.CREATE_PROFILE_RESULT, src, {
-        message: 'CREATE_PROFILE_FAILURE',
+        message: 'FEEDBACK.CREATE_PROFILE_FAILURE',
         type: 'error',
       });
     }
@@ -64,7 +64,7 @@ class _TwitterService {
       const identifier = PlayerService.getIdentifier(src);
       await this.twitterDB.updateProfile(identifier, profile);
       emitNet(TwitterEvents.UPDATE_PROFILE_RESULT, src, {
-        message: 'EDIT_PROFILE_SUCCESS',
+        message: 'FEEDBACK.EDIT_PROFILE_SUCCESS',
         type: 'success',
       });
     } catch (e) {
@@ -72,7 +72,7 @@ class _TwitterService {
         source: src,
       });
       emitNet(TwitterEvents.UPDATE_PROFILE_RESULT, src, {
-        message: 'EDIT_PROFILE_FAILURE',
+        message: 'FEEDBACK.EDIT_PROFILE_FAILURE',
         type: 'error',
       });
     }
@@ -122,7 +122,7 @@ class _TwitterService {
         source: src,
       });
       emitNet(TwitterEvents.CREATE_TWEET_RESULT, src, {
-        message: 'CREATE_FAILED',
+        message: 'FEEDBACK.CREATE_FAILED',
         type: 'error',
       });
     }
@@ -170,7 +170,7 @@ class _TwitterService {
       // this post (or that they are the original poster)
       if (await this.twitterDB.doesRetweetExist(tweetId, identifier)) {
         return emitNet(TwitterEvents.RETWEET_EXISTS, src, {
-          message: 'RETWEET_EXISTS',
+          message: 'FEEDBACK.RETWEET_EXISTS',
           type: 'error',
         });
       }

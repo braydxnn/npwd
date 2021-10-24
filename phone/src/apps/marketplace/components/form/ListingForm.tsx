@@ -55,7 +55,7 @@ export const ListingForm: React.FC = () => {
   const addListing = () => {
     if (!areFieldsFilled) {
       return addAlert({
-        message: t('APPS_MARKETPLACE_REQUIRED_FIELDS'),
+        message: t('MARKETPLACE.FEEDBACK.REQUIRED_FIELDS'),
         type: 'error',
       });
     }
@@ -67,13 +67,13 @@ export const ListingForm: React.FC = () => {
     }).then((resp) => {
       if (resp.status !== 'ok') {
         return addAlert({
-          message: t('APPS_MARKETPLACE_CREATE_LISTING_FAILED'),
+          message: t('MARKETPLACE.FEEDBACK.CREATE_LISTING_FAILED'),
           type: 'error',
         });
       }
 
       addAlert({
-        message: t('APPS_MARKETPLACE_CREATE_LISTING_SUCCESS'),
+        message: t('MARKETPLACE.FEEDBACK.CREATE_LISTING_SUCCESS'),
         type: 'success',
       });
       history.push('/marketplace');
@@ -107,7 +107,7 @@ export const ListingForm: React.FC = () => {
         className={classes.input}
         onChange={(e) => setTitle(e.target.value)}
         label={t('GENERIC.REQUIRED')}
-        placeholder={t('APPS_MARKETPLACE_FORM_TITLE')}
+        placeholder={t('MARKETPLACE.FORM_TITLE')}
         inputProps={{
           className: classes.textFieldInput,
           maxLength: 25,
@@ -129,7 +129,7 @@ export const ListingForm: React.FC = () => {
       </Box>
       <TextField
         className={classes.input}
-        placeholder={t('APPS_MARKETPLACE_FORM_IMAGE')}
+        placeholder={t('MARKETPLACE.FORM_IMAGE')}
         value={url}
         onChange={(e) => setUrl(e.currentTarget.value)}
         inputProps={{ className: classes.textFieldInput }}
@@ -142,7 +142,7 @@ export const ListingForm: React.FC = () => {
         className={classes.input}
         onChange={(e) => setDescription(e.target.value)}
         label={t('GENERIC.REQUIRED')}
-        placeholder={t('APPS_MARKETPLACE_FORM_DESCRIPTION')}
+        placeholder={t('MARKETPLACE.FORM_DESCRIPTION')}
         inputProps={{
           className: classes.multilineFieldInput,
           maxLength: 130,
