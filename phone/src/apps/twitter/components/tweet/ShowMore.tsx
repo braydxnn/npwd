@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Button, Menu, MenuItem } from '@mui/material';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { usePhone } from '../../../../os/phone/hooks/usePhone';
-import { useNuiRequest } from 'fivem-nui-react-lib';
 import ReportButton from '../buttons/ReportButton';
 import { TwitterEvents } from '../../../../../../typings/twitter';
 import { fetchNui } from '../../../../utils/fetchNui';
@@ -12,7 +11,6 @@ import { useSnackbar } from '../../../../ui/hooks/useSnackbar';
 import { useTwitterActions } from '../../hooks/useTwitterActions';
 
 export const ShowMore = ({ id, isReported, isMine }) => {
-  const Nui = useNuiRequest();
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
   const { ResourceConfig } = usePhone();
